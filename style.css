@@ -92,4 +92,24 @@ input[name=class][value=specialist]:checked ~ section > div:not([champ-class*=sp
   display: none;
 }
 
+input[name=lane][value=top]:checked ~ section > div:not([lane*=top]) {
+  display: none;
+}
+
+input[name=lane][value=mid]:checked ~ section > div:not([lane*=mid]) {
+  display: none;
+}
+
+input[name=lane][value=jungle]:checked ~ section > div:not([lane*=jungle]) {
+  display: none;
+}
+
+input[name=lane][value=adc]:checked ~ section > div:not([lane*=adc]) {
+  display: none;
+}
+
+input[name=lane][value=support]:checked ~ section > div:not([lane*=support]) {
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */

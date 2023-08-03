@@ -69,9 +69,16 @@ body {
 
 
 $classes: 'tank', 'fighter', 'mage', 'marksman', 'slayer', 'controller', 'specialist';
+$lanes: 'top', 'mid', 'jungle', 'adc', 'support';
 
 @each $class in $classes {
     input[name='class'][value='#{$class}']:checked~section>div:not([champ-class*='#{$class}' i]) {
         display: none;
+    }
+}
+
+@each $lane in $lanes {
+    input[name='lane'][value='#{$lane}']:checked ~ section > div:not([lane*='#{$lane}']) {
+        display:none;
     }
 }
