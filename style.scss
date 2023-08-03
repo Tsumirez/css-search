@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 2rem;
+    font-family: "Bebas Neue",sans-serif;
+}
+
+#search-panel > input {
+    display: none;
+}
+
+#search-panel > label {
+    cursor: pointer;
+    margin-right: 2rem;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom:0;
+        width: 0;
+        left:50%;
+        height: 0.125rem;
+        background-color: #000;
+        transition: width .5s, left .5s;
+    }
+}
+
+#search-panel > input:checked + label::after {
+    left:0;
+    width: 100%;
+}
+
+#search-results {
+    gap: 1rem;
+    display: grid;
+    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 250px));
+}
+
+.card {
+    position: relative;
+
+    img {
+        width: 100%;
+        border: 1px solid black;
+    }
+
+    p {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding-top: 0.125rem;
+        color: #fff;
+        background-color: rgba(0,0,0,0.9);
+        text-transform:uppercase;
+        text-align: center;
+        height: 1.5rem;
+        word-spacing: .25rem;
+        letter-spacing: .25px;
+        font: 1rem/1.5 "Bebas Neue",sans-serif;
+    }
+}
+
+
+$classes: 'tank', 'fighter', 'mage', 'marksman', 'slayer', 'controller', 'specialist';
+
+@each $class in $classes {
+    input[name='class'][value='#{$class}']:checked~section>div:not([champ-class*='#{$class}' i]) {
+        display: none;
+    }
+}
