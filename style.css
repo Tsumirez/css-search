@@ -9,14 +9,24 @@ body {
   font-family: "Bebas Neue", sans-serif;
 }
 
+#search-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  margin: 0 auto;
+}
+
 #search-panel > input {
   display: none;
 }
 
 #search-panel > label {
   cursor: pointer;
-  margin-right: 2rem;
   position: relative;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: 0.75rem;
+  justify-self: start;
 }
 #search-panel > label::after {
   content: "";
@@ -39,6 +49,7 @@ body {
   display: grid;
   margin-top: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(90px, 250px));
+  grid-column: 1/-1;
 }
 
 .card {
@@ -110,6 +121,72 @@ input[name=lane][value=adc]:checked ~ section > div:not([lane*=adc]) {
 
 input[name=lane][value=support]:checked ~ section > div:not([lane*=support]) {
   display: none;
+}
+
+#search-panel > input[name=class]:not(#c-all):not(:checked) + label {
+  display: none;
+}
+
+#search-panel > input#c-all:checked ~ input[name=class] + label {
+  display: inline-block;
+}
+
+#search-panel > input[name=lane]:not(#l-all):not(:checked) + label {
+  display: none;
+}
+
+#search-panel > input#l-all:checked ~ input[name=lane] + label {
+  display: inline-block;
+}
+
+input[id*=-all] + label {
+  grid-column: 1;
+}
+
+@media screen and (max-width: 2708px) {
+  #search-panel {
+    width: 2379px;
+  }
+}
+@media screen and (max-width: 2442px) {
+  #search-panel {
+    width: 2113px;
+  }
+}
+@media screen and (max-width: 2176px) {
+  #search-panel {
+    width: 1847px;
+  }
+}
+@media screen and (max-width: 1910px) {
+  #search-panel {
+    width: 1581px;
+  }
+}
+@media screen and (max-width: 1644px) {
+  #search-panel {
+    width: 1315px;
+  }
+}
+@media screen and (max-width: 1378px) {
+  #search-panel {
+    width: 1049px;
+  }
+}
+@media screen and (max-width: 1112px) {
+  #search-panel {
+    width: 783px;
+  }
+}
+@media screen and (max-width: 846px) {
+  #search-panel {
+    width: 517px;
+  }
+}
+@media screen and (max-width: 580px) {
+  #search-panel {
+    width: 251px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

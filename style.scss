@@ -9,14 +9,24 @@ body {
     font-family: "Bebas Neue",sans-serif;
 }
 
+#search-panel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    margin: 0 auto;
+}
+
 #search-panel > input {
     display: none;
 }
 
 #search-panel > label {
     cursor: pointer;
-    margin-right: 2rem;
     position: relative;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom:.75rem;
+    justify-self: start;
 
     &::after {
         content: "";
@@ -40,6 +50,7 @@ body {
     display: grid;
     margin-top: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(90px, 250px));
+    grid-column: 1/-1;
 }
 
 .card {
@@ -81,4 +92,35 @@ $lanes: 'top', 'mid', 'jungle', 'adc', 'support';
     input[name='lane'][value='#{$lane}']:checked ~ section > div:not([lane*='#{$lane}']) {
         display:none;
     }
+}
+
+
+
+#search-panel > input[name='class']:not(#c-all):not(:checked) + label {
+   display: none;
+}
+
+#search-panel > input#c-all:checked ~ input[name='class'] + label {
+    display: inline-block;
+}
+
+#search-panel > input[name='lane']:not(#l-all):not(:checked) + label {
+    display: none;
+ }
+ 
+ #search-panel > input#l-all:checked ~ input[name='lane'] + label {
+    display: inline-block;
+ }
+
+ input[id*='-all'] + label{
+    grid-column: 1;
+ }
+
+
+$breakpoints: 10,9,8,7,6,5,4,3,2;
+
+@each $breakpoint in $breakpoints {
+    @media screen and (max-width: (250px * $breakpoint + 16px * ($breakpoint - 1) + 64px )) {
+        #search-panel {width: (250px * ($breakpoint - 1) + 16px * ($breakpoint - 2) + 1px)}
+     }
 }

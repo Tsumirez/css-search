@@ -18,7 +18,7 @@
     <!-- Search Panel controls -->
     <section id="search-panel">
 
-        <input type="radio" name="class" id="all" value=""><label for="all">All</label>
+        <input type="radio" name="class" id="c-all" value="" checked><label for="c-all">Choose Class:</label>
         <input type="radio" name="class" id="c-tank" value="tank"><label for="c-tank">Tank</label>
         <input type="radio" name="class" id="c-fighter" value="fighter"><label for="c-fighter">Fighter</label>
         <input type="radio" name="class" id="c-mage" value="mage"><label for="c-mage">Mage</label>
@@ -29,14 +29,13 @@
         <input type="radio" name="class" id="c-specialist" value="specialist"><label
             for="c-specialist">Specialist</label>
 
-        <div></div>
-
-        <input type="radio" name="lane" value="all" id="l-all" checked><label for="l-all">All</label>
+        <input type="radio" name="lane" value="all" id="l-all" checked><label for="l-all">Choose Lane:</label>
         <input type="radio" name="lane" value="top" id="l-top"><label for="l-top">Top</label>
         <input type="radio" name="lane" value="mid" id="l-mid"><label for="l-mid">Mid</label>
         <input type="radio" name="lane" value="jungle" id="l-jungle"><label for="l-jungle">Jungle</label>
         <input type="radio" name="lane" value="adc" id="l-adc"><label for="l-adc">Adc</label>
         <input type="radio" name="lane" value="support" id="l-support"><label for="l-support">Support</label>
+        
 
         <!-- Search results panel -->
         <section id="search-results">
@@ -79,9 +78,19 @@
                 <p>Kai'sa</p>
             </div>
 
+            <div class="card" champ-name="Maokai" champ-class="Tank" lane="top/jungle/support">
+                <img src="./images/maokai.jpg" alt="Maokai">
+                <p>Maokai</p>
+            </div>
+
             <div class="card" champ-name="Mordekaiser" champ-class="Fighter" lane="top/mid/jungle">
                 <img src="./images/mordekaiser.jpg" alt="Mordekaiser">
                 <p>Mordekaiser</p>
+            </div>
+            
+            <div class="card" champ-name="Ornn" champ-class="Tank" lane="top">
+                <img src="./images/ornn.jpg" alt="Ornn">
+                <p>Ornn</p>
             </div>
             
             <div class="card" champ-name="Pantheon" champ-class="Fighter" lane="top/mid/support/jungle">
@@ -104,6 +113,16 @@
                 <p>Renata Glasc</p>
             </div>
 
+            <div class="card" champ-name="Sejuani" champ-class="Tank" lane="jungle">
+                <img src="./images/sejuani.jpg" alt="Sejuani">
+                <p>Sejuani</p>
+            </div>
+
+            <div class="card" champ-name="Singed" champ-class="Specialist/Tank" lane="top">
+                <img src="./images/singed.jpg" alt="Singed">
+                <p>Singed</p>
+            </div>
+
             <div class="card" champ-name="Sona" champ-class="Controller/Enchanter" lane="support">
                 <img src="./images/sona.jpg" alt="Sona">
                 <p>Sona</p>
@@ -112,6 +131,11 @@
             <div class="card" champ-name="Senna" champ-class="Marksman/Enchanter" lane="adc/support">
                 <img src="./images/senna.jpg" alt="Senna">
                 <p>Senna</p>
+            </div>
+
+            <div class="card" champ-name="Shen" champ-class="Tank/Support" lane="top/mid/support">
+                <img src="./images/shen.jpg" alt="Shen">
+                <p>Shen</p>
             </div>
 
             <div class="card" champ-name="Swain" champ-class="Mage" lane="top/mid/support">
@@ -148,7 +172,6 @@
                 <img src="./images/yorick.jpg" alt="Yorick">
                 <p>Yorick</p>
             </div>
-
         </section>
     </section>
 </body>
