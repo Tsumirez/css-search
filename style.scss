@@ -7,6 +7,7 @@
 body {
     padding: 2rem;
     font-family: "Bebas Neue",sans-serif;
+    --test: 1n;
 }
 
 #search-panel {
@@ -54,11 +55,14 @@ body {
 }
 
 .card {
+    cursor:pointer;
     position: relative;
+    outline:#000 solid 1px;
+    outline-offset: -1px;
 
     img {
         width: 100%;
-        border: 1px solid black;
+        display:block;
     }
 
     p {
@@ -75,6 +79,15 @@ body {
         word-spacing: .25rem;
         letter-spacing: .25px;
         font: 1rem/1.5 "Bebas Neue",sans-serif;
+    }
+
+    &:active {
+        position: fixed;
+    }
+
+    &:active + .card {
+        grid-column: span 2;
+        justify-self: end;
     }
 }
 
@@ -120,7 +133,8 @@ $lanes: 'top', 'mid', 'jungle', 'adc', 'support';
 $breakpoints: 10,9,8,7,6,5,4,3,2;
 
 @each $breakpoint in $breakpoints {
-    @media screen and (max-width: (250px * $breakpoint + 16px * ($breakpoint - 1) + 64px )) {
+    @media screen and (max-width: (250px * $breakpoint + 16px * ($breakpoint - 1) + 64px )) and (min-width: (250px * ($breakpoint - 1) + 16px * ($breakpoint - 2) + 64px )) {
         #search-panel {width: (250px * ($breakpoint - 1) + 16px * ($breakpoint - 2) + 1px)}
+        .card:active + .card:nth-of-type(#{$breakpoint - 1}n + 1) {grid-column: 1/2; justify-self: auto;}
      }
 }
