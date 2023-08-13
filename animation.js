@@ -1,11 +1,11 @@
-let card_inputs = document.querySelectorAll("#search-results > label > input");
+let card_slides = document.querySelectorAll("#search-results > label");
 
 let forwardCard = null;
 let returnCard = null;
 
 
 function cardClicked(e) {
-    let card = e.target.parentElement;
+    let card = e.target.parentElement.nodeName=="DIV"?e.target.parentElement:e.target.children[0];
 
     if(forwardCard === card) {
         returnCard = forwardCard;
@@ -36,7 +36,6 @@ function animateCard(card, direction) {
     card.animate(pickCardAnimation, { ...animationSettings, direction: direction })
 }
 
-card_inputs.forEach(input => {
-    let card = input.nextElementSibling;
-    card.addEventListener("click", cardClicked)
+card_slides.forEach(slide => {
+    slide.addEventListener("click", cardClicked);
 });
