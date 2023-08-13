@@ -7,7 +7,7 @@
 body {
   padding: 2rem;
   font-family: "Bebas Neue", sans-serif;
-  --test: 1n;
+  --card-pick-duration: .25s;
 }
 
 #search-panel {
@@ -53,84 +53,103 @@ body {
   grid-column: 1/-1;
 }
 
+#search-results > label > input {
+  display: none;
+}
+
 .card {
   cursor: pointer;
-  position: relative;
   outline: #000 solid 1px;
   outline-offset: -1px;
+  transition: left 1s, top 1s, transform 1s;
 }
 .card img {
   width: 100%;
   display: block;
 }
 .card p {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding-top: 0.125rem;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.9);
-  text-transform: uppercase;
-  text-align: center;
+  margin-top: -25px;
   height: 1.5rem;
+  position: relative;
+  padding-top: 0.125rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  text-align: center;
   word-spacing: 0.25rem;
   letter-spacing: 0.25px;
+  text-transform: uppercase;
   font: 1rem/1.5 "Bebas Neue", sans-serif;
 }
-.card:active {
-  position: fixed;
-}
-.card:active + .card {
-  grid-column: span 2;
-  justify-self: end;
+.card:hover {
+  box-shadow: 0rem 0rem 0.5rem #333;
+  transform-origin: center;
 }
 
-input[name=class][value=tank]:checked ~ section > div:not([champ-class*=tank i]) {
+@keyframes card-pick {
+  100% {
+    left: calc(50% - 125px);
+    top: calc(50% - 141px);
+  }
+}
+@keyframes card-return {
+  0% {
+    left: calc(50% - 125px);
+    top: calc(50% - 141px);
+  }
+  99.9% {
+    position: fixed;
+    z-index: 1;
+  }
+  100% {
+    position: static;
+    z-index: 0;
+  }
+}
+input[name=class][value=tank]:checked ~ section label:not([champ-class*=tank i]) {
   display: none;
 }
 
-input[name=class][value=fighter]:checked ~ section > div:not([champ-class*=fighter i]) {
+input[name=class][value=fighter]:checked ~ section label:not([champ-class*=fighter i]) {
   display: none;
 }
 
-input[name=class][value=mage]:checked ~ section > div:not([champ-class*=mage i]) {
+input[name=class][value=mage]:checked ~ section label:not([champ-class*=mage i]) {
   display: none;
 }
 
-input[name=class][value=marksman]:checked ~ section > div:not([champ-class*=marksman i]) {
+input[name=class][value=marksman]:checked ~ section label:not([champ-class*=marksman i]) {
   display: none;
 }
 
-input[name=class][value=slayer]:checked ~ section > div:not([champ-class*=slayer i]) {
+input[name=class][value=slayer]:checked ~ section label:not([champ-class*=slayer i]) {
   display: none;
 }
 
-input[name=class][value=controller]:checked ~ section > div:not([champ-class*=controller i]) {
+input[name=class][value=controller]:checked ~ section label:not([champ-class*=controller i]) {
   display: none;
 }
 
-input[name=class][value=specialist]:checked ~ section > div:not([champ-class*=specialist i]) {
+input[name=class][value=specialist]:checked ~ section label:not([champ-class*=specialist i]) {
   display: none;
 }
 
-input[name=lane][value=top]:checked ~ section > div:not([lane*=top]) {
+input[name=lane][value=top]:checked ~ section label:not([lane*=top]) {
   display: none;
 }
 
-input[name=lane][value=mid]:checked ~ section > div:not([lane*=mid]) {
+input[name=lane][value=mid]:checked ~ section label:not([lane*=mid]) {
   display: none;
 }
 
-input[name=lane][value=jungle]:checked ~ section > div:not([lane*=jungle]) {
+input[name=lane][value=jungle]:checked ~ section label:not([lane*=jungle]) {
   display: none;
 }
 
-input[name=lane][value=adc]:checked ~ section > div:not([lane*=adc]) {
+input[name=lane][value=adc]:checked ~ section label:not([lane*=adc]) {
   display: none;
 }
 
-input[name=lane][value=support]:checked ~ section > div:not([lane*=support]) {
+input[name=lane][value=support]:checked ~ section label:not([lane*=support]) {
   display: none;
 }
 
@@ -154,85 +173,49 @@ input[id*=-all] + label {
   grid-column: 1;
 }
 
-@media screen and (max-width: 2708px) and (min-width: 2442px) {
+@media screen and (max-width: 2708px) {
   #search-panel {
     width: 2379px;
   }
-  .card:active + .card:nth-of-type(9n + 1) {
-    grid-column: 1/2;
-    justify-self: auto;
-  }
 }
-@media screen and (max-width: 2442px) and (min-width: 2176px) {
+@media screen and (max-width: 2442px) {
   #search-panel {
     width: 2113px;
   }
-  .card:active + .card:nth-of-type(8n + 1) {
-    grid-column: 1/2;
-    justify-self: auto;
-  }
 }
-@media screen and (max-width: 2176px) and (min-width: 1910px) {
+@media screen and (max-width: 2176px) {
   #search-panel {
     width: 1847px;
   }
-  .card:active + .card:nth-of-type(7n + 1) {
-    grid-column: 1/2;
-    justify-self: auto;
-  }
 }
-@media screen and (max-width: 1910px) and (min-width: 1644px) {
+@media screen and (max-width: 1910px) {
   #search-panel {
     width: 1581px;
   }
-  .card:active + .card:nth-of-type(6n + 1) {
-    grid-column: 1/2;
-    justify-self: auto;
-  }
 }
-@media screen and (max-width: 1644px) and (min-width: 1378px) {
+@media screen and (max-width: 1644px) {
   #search-panel {
     width: 1315px;
   }
-  .card:active + .card:nth-of-type(5n + 1) {
-    grid-column: 1/2;
-    justify-self: auto;
-  }
 }
-@media screen and (max-width: 1378px) and (min-width: 1112px) {
+@media screen and (max-width: 1378px) {
   #search-panel {
     width: 1049px;
   }
-  .card:active + .card:nth-of-type(4n + 1) {
-    grid-column: 1/2;
-    justify-self: auto;
-  }
 }
-@media screen and (max-width: 1112px) and (min-width: 846px) {
+@media screen and (max-width: 1112px) {
   #search-panel {
     width: 783px;
   }
-  .card:active + .card:nth-of-type(3n + 1) {
-    grid-column: 1/2;
-    justify-self: auto;
-  }
 }
-@media screen and (max-width: 846px) and (min-width: 580px) {
+@media screen and (max-width: 846px) {
   #search-panel {
     width: 517px;
   }
-  .card:active + .card:nth-of-type(2n + 1) {
-    grid-column: 1/2;
-    justify-self: auto;
-  }
 }
-@media screen and (max-width: 580px) and (min-width: 314px) {
+@media screen and (max-width: 580px) {
   #search-panel {
     width: 251px;
-  }
-  .card:active + .card:nth-of-type(1n + 1) {
-    grid-column: 1/2;
-    justify-self: auto;
   }
 }
 

@@ -1,3 +1,5 @@
+// Resets and global styles
+
 * {
     margin: 0;
     padding: 0;
@@ -7,9 +9,10 @@
 body {
     padding: 2rem;
     font-family: "Bebas Neue",sans-serif;
-    --test: 1n;
+    --card-pick-duration: .25s;
 }
 
+// main page layout
 #search-panel {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
@@ -20,6 +23,7 @@ body {
     display: none;
 }
 
+// search links
 #search-panel > label {
     cursor: pointer;
     position: relative;
@@ -46,6 +50,7 @@ body {
     width: 100%;
 }
 
+// Champion card grid layout
 #search-results {
     gap: 1rem;
     display: grid;
@@ -54,11 +59,16 @@ body {
     grid-column: 1/-1;
 }
 
+// champion card styles
+#search-results > label > input {
+    display: none;
+}
+
 .card {
     cursor:pointer;
-    position: relative;
     outline:#000 solid 1px;
     outline-offset: -1px;
+    transition:left 1s, top 1s, transform 1s;
 
     img {
         width: 100%;
@@ -66,49 +76,98 @@ body {
     }
 
     p {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding-top: 0.125rem;
-        color: #fff;
-        background-color: rgba(0,0,0,0.9);
-        text-transform:uppercase;
-        text-align: center;
+        margin-top: -25px;
         height: 1.5rem;
+        position: relative;
+        padding-top: 0.125rem;
+        background-color: rgba(0,0,0,0.9);
+
+        color: #fff;
+        text-align: center;
         word-spacing: .25rem;
         letter-spacing: .25px;
+        text-transform:uppercase;
         font: 1rem/1.5 "Bebas Neue",sans-serif;
     }
 
-    &:active {
-        position: fixed;
-    }
-
-    &:active + .card {
-        grid-column: span 2;
-        justify-self: end;
+    &:hover {
+        box-shadow: 0rem 0rem .5rem #333;
+        // transform:scale(1.04);
+        transform-origin: center;
     }
 }
 
+// #search-results input + div {
+//     transition: left .25s linear, top .25s linear;
+// }
+
+// #search-results input:checked + div {
+//     position:fixed;
+//     z-index: 4;
+//     left:calc(50% - 125px) !important;
+//     top:calc(50% - 141px) !important;
+//     transition:  left .25s linear, top .25s linear, position .25s steps(1, end);
+// }
+
+// #search-results input:not(:checked) + div {
+//     transition:  left 5s linear, top 5s linear, z-index 5s steps(1, end), position 5s steps(1, end);
+// }
+
+// #search-results input:checked + div[class~="clicked"] {
+//     animation: card-pick var(--card-pick-duration) forwards;
+// }
+
+// #search-results input:checked + div {
+//     animation: card-return var(--card-pick-duration) forwards;
+// }
+
+//card picked animations
+@keyframes card-pick {
+    0% {
+
+    }
+
+    100% {
+        left:calc(50% - 125px);
+        top:calc(50% - 141px);
+    }
+}
+
+@keyframes card-return {
+    0% {
+        left:calc(50% - 125px);
+        top:calc(50% - 141px);
+    }
+
+    99.9% {
+        position:fixed;
+        z-index: 1;
+    }
+    100% {
+        position: static;
+        z-index: 0;
+    }
+}
+
+//search engine rules
 
 $classes: 'tank', 'fighter', 'mage', 'marksman', 'slayer', 'controller', 'specialist';
 $lanes: 'top', 'mid', 'jungle', 'adc', 'support';
 
 @each $class in $classes {
-    input[name='class'][value='#{$class}']:checked~section>div:not([champ-class*='#{$class}' i]) {
+    input[name='class'][value='#{$class}']:checked~section label:not([champ-class*='#{$class}' i]) {
         display: none;
     }
 }
 
 @each $lane in $lanes {
-    input[name='lane'][value='#{$lane}']:checked ~ section > div:not([lane*='#{$lane}']) {
+    input[name='lane'][value='#{$lane}']:checked ~ section  label:not([lane*='#{$lane}']) {
         display:none;
     }
 }
 
 
-
+//search engine labels styles based on selections
 #search-panel > input[name='class']:not(#c-all):not(:checked) + label {
    display: none;
 }
@@ -125,16 +184,20 @@ $lanes: 'top', 'mid', 'jungle', 'adc', 'support';
     display: inline-block;
  }
 
+ //forces new search category into a new grid row
  input[id*='-all'] + label{
     grid-column: 1;
  }
 
 
+//MEDIA QUERIES
+
+//media queries for detecting last card in it's row (for proper behaviour of leaving empty space when it gets picked)
 $breakpoints: 10,9,8,7,6,5,4,3,2;
 
 @each $breakpoint in $breakpoints {
-    @media screen and (max-width: (250px * $breakpoint + 16px * ($breakpoint - 1) + 64px )) and (min-width: (250px * ($breakpoint - 1) + 16px * ($breakpoint - 2) + 64px )) {
+
+    @media screen and (max-width: (250px * $breakpoint + 16px * ($breakpoint - 1) + 64px )) /* and  (min-width: (250px * ($breakpoint - 1) + 16px * ($breakpoint - 2) + 64px ))*/ {
         #search-panel {width: (250px * ($breakpoint - 1) + 16px * ($breakpoint - 2) + 1px)}
-        .card:active + .card:nth-of-type(#{$breakpoint - 1}n + 1) {grid-column: 1/2; justify-self: auto;}
      }
 }

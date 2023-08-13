@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Slab:wght@700&display=swap"
         rel="stylesheet">
+    <script src="animation.js" defer></script>
 </head>
 
 <body>
@@ -35,143 +36,229 @@
         <input type="radio" name="lane" value="jungle" id="l-jungle"><label for="l-jungle">Jungle</label>
         <input type="radio" name="lane" value="adc" id="l-adc"><label for="l-adc">Adc</label>
         <input type="radio" name="lane" value="support" id="l-support"><label for="l-support">Support</label>
-        
+
 
         <!-- Search results panel -->
         <section id="search-results">
-            <div class="card" champ-name="Sion" champ-class="Tank/Vanguard" lane="top/mid/jungle">
-                <img src="./images/sion.jpg" alt="Sion">
-                <p>Sion</p>
-            </div>
-            <div class="card" champ-name="Alistar" champ-class="Tank/Vanguard" lane="support/top">
-                <img src="./images/alistar.jpg" alt="Alistar">
-                <p>Alistar</p>
-            </div>
+            <label for="sion" hamp-name="Sion" champ-class="Tank/Vanguard" lane="top/mid/jungle">
+                <input type="radio" name="selected-champion" id="sion">
+                <div class="card">
+                    <img src="./images/sion.jpg" alt="Sion">
+                    <p>Sion</p>
+                </div>
+            </label>
 
-            <div class="card" champ-name="Diana" champ-class="Fighter/Mage" lane="mid/jungle">
-                <img src="./images/diana.jpg" alt="Diana">
-                <p>Diana</p>
-            </div>
 
-            <div class="card" champ-name="Evelynn" champ-class="Slayer" lane="jungle">
-                <img src="./images/evelynn.jpg" alt="Evelynn">
-                <p>Evelynn</p>
-            </div>
+            <label for="alistar"  champ-name="Alistar" champ-class="Tank/Vanguard" lane="support/top">
+                <input type="radio" name="selected-champion" id="alistar">
+                <div class="card">
+                    <img src="./images/alistar.jpg" alt="Alistar">
+                    <p>Alistar</p>
+                </div>
+            </label>
 
-            <div class="card" champ-name="Fiddlesticks" champ-class="Specialist" lane="jungle/support">
-                <img src="./images/fiddlesticks.jpg" alt="Fiddlesticks">
-                <p>Fiddlesticks</p>
-            </div>
 
-            <div class="card" champ-name="Illaoi" champ-class="Fighter" lane="top">
-                <img src="./images/illaoi.jpg" alt="Illaoi">
-                <p>Illaoi</p>
-            </div>
+            <label for="diana" champ-name="Diana" champ-class="Fighter/Mage" lane="mid/jungle">
+                <input type="radio" name="selected-champion" id="diana">
+                <div class="card">
+                    <img src="./images/diana.jpg" alt="Diana">
+                    <p>Diana</p>
+                </div>
+            </label>
 
-            <div class="card" champ-name="Irelia" champ-class="Slayer" lane="mid/top">
-                <img src="./images/irelia.jpg" alt="Irelia">
-                <p>Irelia</p>
-            </div>
 
-            <div class="card" champ-name="Kai'sa" champ-class="Marksman" lane="adc/mid">
-                <img src="./images/kaisa.jpg" alt="Kai'sa">
-                <p>Kai'sa</p>
-            </div>
+            <label for="evelynn" champ-name="Evelynn" champ-class="Slayer" lane="jungle">
+                <input type="radio" name="selected-champion" id="evelynn">
+                <div class="card">
+                    <img src="./images/evelynn.jpg" alt="Evelynn">
+                    <p>Evelynn</p>
+                </div>
+            </label>
 
-            <div class="card" champ-name="Maokai" champ-class="Tank" lane="top/jungle/support">
-                <img src="./images/maokai.jpg" alt="Maokai">
-                <p>Maokai</p>
-            </div>
+            <label for="fiddlesticks" champ-name="Fiddlesticks" champ-class="Specialist" lane="jungle/support">
+                <input type="radio" name="selected-champion" id="fiddlesticks">
+                <div class="card">
+                    <img src="./images/fiddlesticks.jpg" alt="Fiddlesticks">
+                    <p>Fiddlesticks</p>
+                </div>
+            </label>
 
-            <div class="card" champ-name="Mordekaiser" champ-class="Fighter" lane="top/mid/jungle">
-                <img src="./images/mordekaiser.jpg" alt="Mordekaiser">
-                <p>Mordekaiser</p>
-            </div>
-            
-            <div class="card" champ-name="Ornn" champ-class="Tank" lane="top">
-                <img src="./images/ornn.jpg" alt="Ornn">
-                <p>Ornn</p>
-            </div>
-            
-            <div class="card" champ-name="Pantheon" champ-class="Fighter" lane="top/mid/support/jungle">
-                <img src="./images/pantheon.jpg" alt="Pantheon">
-                <p>Pantheon</p>
-            </div>
-            
-            <div class="card" champ-name="Pyke" champ-class="Slayer" lane="support/mid">
-                <img src="./images/pyke.jpg" alt="Pyke">
-                <p>Pyke</p>
-            </div>
+            <label for="illaoi" champ-name="Illaoi" champ-class="Fighter" lane="top">
+                <input type="radio" name="selected-champion" id="illaoi">
+                <div class="card">
+                    <img src="./images/illaoi.jpg" alt="Illaoi">
+                    <p>Illaoi</p>
+                </div>
+            </label>
 
-            <div class="card" champ-name="Qiyana" champ-class="Slayer/Assassin" lane="mid/jungle">
-                <img src="./images/qiyana.jpg" alt="Qiyana">
-                <p>Qiyana</p>
-            </div>
+            <label for="irelia" champ-name="Irelia" champ-class="Slayer" lane="mid/top">
+                <input type="radio" name="selected-champion" id="irelia">
+                <div class="card">
+                    <img src="./images/irelia.jpg" alt="Irelia">
+                    <p>Irelia</p>
+                </div>
+            </label>
 
-            <div class="card" champ-name="Renata" champ-class="Controller/Enchanter" lane="support">
-                <img src="./images/renata.jpg" alt="Renata">
-                <p>Renata Glasc</p>
-            </div>
+            <label for="kaisa" champ-name="Kai'sa" champ-class="Marksman" lane="adc/mid">
+                <input type="radio" name="selected-champion" id="kaisa">
+                <div class="card">
+                    <img src="./images/kaisa.jpg" alt="Kai'sa">
+                    <p>Kai'sa</p>
+                </div>
+            </label>
 
-            <div class="card" champ-name="Sejuani" champ-class="Tank" lane="jungle">
-                <img src="./images/sejuani.jpg" alt="Sejuani">
-                <p>Sejuani</p>
-            </div>
 
-            <div class="card" champ-name="Singed" champ-class="Specialist/Tank" lane="top">
-                <img src="./images/singed.jpg" alt="Singed">
-                <p>Singed</p>
-            </div>
+            <label for="maokai" champ-name="Maokai" champ-class="Tank" lane="top/jungle/support">
+                <input type="radio" name="selected-champion" name="" id="maokai">
+                <div class="card">
+                    <img src="./images/maokai.jpg" alt="Maokai">
+                    <p>Maokai</p>
+                </div>
+            </label>
 
-            <div class="card" champ-name="Sona" champ-class="Controller/Enchanter" lane="support">
-                <img src="./images/sona.jpg" alt="Sona">
-                <p>Sona</p>
-            </div>
+            <label for="mordekaiser" champ-name="Mordekaiser" champ-class="Fighter" lane="top/mid/jungle">
+                <input type="radio" name="selected-champion" id="mordekaiser">
+                <div class="card">
+                    <img src="./images/mordekaiser.jpg" alt="Mordekaiser">
+                    <p>Mordekaiser</p>
+                </div>
+            </label>
 
-            <div class="card" champ-name="Senna" champ-class="Marksman/Enchanter" lane="adc/support">
-                <img src="./images/senna.jpg" alt="Senna">
-                <p>Senna</p>
-            </div>
+            <label for="ornn"  champ-name="Ornn" champ-class="Tank" lane="top">
+                <input type="radio" name="selected-champion" id="ornn">
+                <div class="card">
+                    <img src="./images/ornn.jpg" alt="Ornn">
+                    <p>Ornn</p>
+                </div>
+            </label>
 
-            <div class="card" champ-name="Shen" champ-class="Tank/Support" lane="top/mid/support">
-                <img src="./images/shen.jpg" alt="Shen">
-                <p>Shen</p>
-            </div>
+            <label for="pantheon"  champ-name="Pantheon" champ-class="Fighter" lane="top/mid/support/jungle">
+                <input type="radio" name="selected-champion" name="" id="pantheon">
+                <div class="card">
+                    <img src="./images/pantheon.jpg" alt="Pantheon">
+                    <p>Pantheon</p>
+                </div>
+            </label>
 
-            <div class="card" champ-name="Swain" champ-class="Mage" lane="top/mid/support">
-                <img src="./images/swain.jpg" alt="Swain">
-                <p>Swain</p>
-            </div>
+            <label for="pyke"  champ-name="Pyke" champ-class="Slayer" lane="support/mid">
+                <input type="radio" name="selected-champion" id="pyke">
+                <div class="card">
+                    <img src="./images/pyke.jpg" alt="Pyke">
+                    <p>Pyke</p>
+                </div>
+            </label>
 
-            <div class="card" champ-name="Syndra" champ-class="Mage/Burst Mage" lane="mid">
-                <img src="./images/syndra.jpg" alt="Syndra">
-                <p>Syndra</p>
-            </div>
+            <label for="qiyana" champ-name="Qiyana" champ-class="Slayer/Assassin" lane="mid/jungle">
+                <input type="radio" name="selected-champion" id="qiyana">
+                <div class="card">
+                    <img src="./images/qiyana.jpg" alt="Qiyana">
+                    <p>Qiyana</p>
+                </div>
+            </label>
 
-            <div class="card" champ-name="Twitch" champ-class="Marksman" lane="adc/support/jungle">
-                <img src="./images/twitch.jpg" alt="Twitch">
-                <p>Twitch</p>
-            </div>
+            <label for="renata" champ-name="Renata" champ-class="Controller/Enchanter" lane="support">
+                <input type="radio" name="selected-champion" id="renata">
+                <div class="card">
+                    <img src="./images/renata.jpg" alt="Renata">
+                    <p>Renata Glasc</p>
+                </div>
+            </label>
 
-            <div class="card" champ-name="Udyr" champ-class="Fighter/Juggernaut" lane="jungle/top">
-                <img src="./images/udyr.jpg" alt="Udyr">
-                <p>Udyr</p>
-            </div>
+            <label for="sejuani" champ-name="Sejuani" champ-class="Tank" lane="jungle">
+                <input type="radio" name="selected-champion" id="sejuani">
+                <div class="card">
+                    <img src="./images/sejuani.jpg" alt="Sejuani">
+                    <p>Sejuani</p>
+                </div>
+            </label>
 
-            <div class="card" champ-name="Varus" champ-class="Marksman" lane="adc/mid">
-                <img src="./images/varus.jpg" alt="Varus">
-                <p>Varus</p>
-            </div>
+            <label for="singed" champ-name="Singed" champ-class="Specialist/Tank" lane="top">
+                <input type="radio" name="selected-champion" id="singed">
+                <div class="card">
+                    <img src="./images/singed.jpg" alt="Singed">
+                    <p>Singed</p>
+                </div>
+            </label>
 
-            <div class="card" champ-name="Vayne" champ-class="Marksman" lane="adc/top">
-                <img src="./images/vayne.jpg" alt="Vayne">
-                <p>Vayne</p>
-            </div>
+            <label for="sona" champ-name="Sona" champ-class="Controller/Enchanter" lane="support">
+                <input type="radio" name="selected-champion" id="sona">
+                <div class="card">
+                    <img src="./images/sona.jpg" alt="Sona">
+                    <p>Sona</p>
+                </div>
+            </label>
 
-            <div class="card" champ-name="Yorick" champ-class="Fighter" lane="top/jungle">
-                <img src="./images/yorick.jpg" alt="Yorick">
-                <p>Yorick</p>
-            </div>
+            <label for="senna" champ-name="Senna" champ-class="Marksman/Enchanter" lane="adc/support">
+                <input type="radio" name="selected-champion" id="senna">
+                <div class="card">
+                    <img src="./images/senna.jpg" alt="Senna">
+                    <p>Senna</p>
+                </div>
+            </label>
+
+            <label for="shen" champ-name="Shen" champ-class="Tank/Support" lane="top/mid/support">
+                <input type="radio" name="selected-champion" id="shen">
+                <div class="card">
+                    <img src="./images/shen.jpg" alt="Shen">
+                    <p>Shen</p>
+                </div>
+            </label>
+
+            <label for="swain" champ-name="Swain" champ-class="Mage" lane="top/mid/support">
+                <input type="radio" name="selected-champion" id="swain">
+                <div class="card">
+                    <img src="./images/swain.jpg" alt="Swain">
+                    <p>Swain</p>
+                </div>
+            </label>
+
+            <label for="syndra" champ-name="Syndra" champ-class="Mage/Burst Mage" lane="mid">
+                <input type="radio" name="selected-champion" id="syndra">
+                <div class="card">
+                    <img src="./images/syndra.jpg" alt="Syndra">
+                    <p>Syndra</p>
+                </div>
+            </label>
+
+            <label for="twitch" champ-name="Twitch" champ-class="Marksman" lane="adc/support/jungle">
+                <input type="radio" name="selected-champion" id="twitch">
+                <div class="card">
+                    <img src="./images/twitch.jpg" alt="Twitch">
+                    <p>Twitch</p>
+                </div>
+            </label>
+
+            <label for="udyr" champ-name="Udyr" champ-class="Fighter/Juggernaut" lane="jungle/top">
+                <input type="radio" name="selected-champion" id="udyr">
+                <div class="card">
+                    <img src="./images/udyr.jpg" alt="Udyr">
+                    <p>Udyr</p>
+                </div>
+            </label>
+
+            <label for="varus" champ-name="Varus" champ-class="Marksman" lane="adc/mid">
+                <input type="radio" name="selected-champion" id="varus">
+                <div class="card">
+                    <img src="./images/varus.jpg" alt="Varus">
+                    <p>Varus</p>
+                </div>
+            </label>
+
+            <label for="vayne" champ-name="Vayne" champ-class="Marksman" lane="adc/top">
+                <input type="radio" name="selected-champion" id="vayne">
+                <div class="card">
+                    <img src="./images/vayne.jpg" alt="Vayne">
+                    <p>Vayne</p>
+                </div>
+            </label>
+
+            <label for="yorick" champ-name="Yorick" champ-class="Fighter" lane="top/jungle">
+                <input type="radio" name="selected-champion" id="yorick">
+                <div class="card">
+                    <img src="./images/yorick.jpg" alt="Yorick">
+                    <p>Yorick</p>
+                </div>
+            </label>
         </section>
     </section>
 </body>
