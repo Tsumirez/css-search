@@ -52,9 +52,9 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(90px, 250px));
   grid-column: 1/-1;
 }
-
-#search-results > label > input {
-  display: none;
+#search-results label {
+  cursor: pointer;
+  position: relative;
 }
 
 .card {
@@ -67,8 +67,8 @@ body {
   width: 100%;
   display: block;
 }
-.card p {
-  margin-top: -25px;
+.card p:first-child, .card p:last-child {
+  margin-top: -1.5rem;
   height: 1.5rem;
   position: relative;
   padding-top: 0.125rem;
@@ -79,6 +79,11 @@ body {
   letter-spacing: 0.25px;
   text-transform: uppercase;
   font: 1rem/1.5 "Bebas Neue", sans-serif;
+}
+.card p:first-child {
+  margin-top: 0;
+  position: absolute;
+  width: 100%;
 }
 .card:hover {
   box-shadow: 0rem 0rem 0.5rem #333;

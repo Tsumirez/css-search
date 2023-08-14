@@ -57,13 +57,14 @@ body {
     margin-top: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(90px, 250px));
     grid-column: 1/-1;
+
+    label {
+        cursor: pointer;
+        position: relative;
+    }
 }
 
 // champion card styles
-#search-results > label > input {
-    display: none;
-}
-
 .card {
     cursor:pointer;
     outline:#000 solid 1px;
@@ -76,7 +77,7 @@ body {
     }
 
     p {
-        margin-top: -25px;
+        margin-top: -1.5rem;
         height: 1.5rem;
         position: relative;
         padding-top: 0.125rem;
@@ -92,34 +93,9 @@ body {
 
     &:hover {
         box-shadow: 0rem 0rem .5rem #333;
-        // transform:scale(1.04);
         transform-origin: center;
     }
 }
-
-// #search-results input + div {
-//     transition: left .25s linear, top .25s linear;
-// }
-
-// #search-results input:checked + div {
-//     position:fixed;
-//     z-index: 4;
-//     left:calc(50% - 125px) !important;
-//     top:calc(50% - 141px) !important;
-//     transition:  left .25s linear, top .25s linear, position .25s steps(1, end);
-// }
-
-// #search-results input:not(:checked) + div {
-//     transition:  left 5s linear, top 5s linear, z-index 5s steps(1, end), position 5s steps(1, end);
-// }
-
-// #search-results input:checked + div[class~="clicked"] {
-//     animation: card-pick var(--card-pick-duration) forwards;
-// }
-
-// #search-results input:checked + div {
-//     animation: card-return var(--card-pick-duration) forwards;
-// }
 
 //card picked animations
 @keyframes card-pick {
@@ -192,7 +168,7 @@ $lanes: 'top', 'mid', 'jungle', 'adc', 'support';
 
 //MEDIA QUERIES
 
-//media queries for detecting last card in it's row (for proper behaviour of leaving empty space when it gets picked)
+//media queries (for setting champ card container width for perfect alignement)
 $breakpoints: 10,9,8,7,6,5,4,3,2;
 
 @each $breakpoint in $breakpoints {

@@ -1,8 +1,6 @@
 let card_slides = document.querySelectorAll("#search-results > label");
 
-let forwardCard = null;
-let returnCard = null;
-
+let forwardCard, returnCard = null;
 
 function cardClicked(e) {
     let card = e.target.parentElement.nodeName=="DIV"?e.target.parentElement:e.target.children[0];
